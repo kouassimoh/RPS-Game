@@ -1,0 +1,32 @@
+import random
+
+def play_game():
+    game_list = ["rock", "paper", "scissors"]    
+
+    #Input validation for the user
+    while True:
+        program = random.choice(game_list) # Generate program's choice each round
+        user = input("Choose among rock, paper, or scissors: ").lower()
+
+        if user not in game_list:
+            print("Invalid input, choose between rock, paper, scissors")
+            continue
+
+        print(f"You chose {user}!")
+        print(f"The program chose {program}!")
+
+        if user == program:
+            print("It's a draw!")
+        elif (user == "rock" and program == "scissors") or \
+             (user == "scissors" and program == "paper") or \
+             (user == "paper" and program == "rock"):
+            print('You won!')
+        else:
+            print('You lost to the program!')
+        
+        play_again = input("Would you like to keep playing? (yes or no): ").lower()
+        if play_again != 'yes':
+            print('Thanks for playing!')
+            break
+
+play_game()
